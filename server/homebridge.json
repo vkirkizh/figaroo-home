@@ -1,0 +1,53 @@
+{
+    "bridge": {
+        "name": "Homebridge-Pi",
+        "username": "...",
+        "port": 51827,
+        "pin": "..."
+    },
+    "description": "Figaroo Homebridge",
+    "accessories": [
+        {
+            "accessory": "Httpeverything",
+            "service": "Switch",
+            "name": "FigarooHome-1-Switch",
+            "apiBaseUrl": "http://localhost/bridge.php?id=00000001&cmd=",
+            "apiSuffixUrl": "",
+            "forceRefreshDelay": 0
+        },
+        {
+            "accessory": "Httpeverything",
+            "service": "Thermostat",
+            "name": "FigarooHome-2-Thermostat",
+            "apiBaseUrl": "http://localhost/bridge.php?id=00000002&cmd=",
+            "apiSuffixUrl": "",
+            "minTemp": 17,
+            "maxTemp": 30,
+            "forceRefreshDelay": 0
+        },
+        {
+            "accessory": "Httpeverything",
+            "service": "TemperatureSensor",
+            "name": "FigarooHome-3-Temperature",
+            "apiBaseUrl": "http://localhost/bridge.php?id=00000003&cmd=",
+            "apiSuffixUrl": "",
+            "forceRefreshDelay": 0
+        },
+        {
+            "accessory": "Httpeverything",
+            "service": "HumiditySensor",
+            "name": "FigarooHome-3-Humidity",
+            "apiBaseUrl": "http://localhost/bridge.php?id=00000003&cmd=",
+            "apiSuffixUrl": "",
+            "forceRefreshDelay": 0
+        },
+        {
+            "accessory": "Httpeverything",
+            "service": "CarbonDioxideSensor",
+            "name": "FigarooHome-3-CarbonDioxide",
+            "apiBaseUrl": "http://localhost/bridge.php?id=00000003&cmd=",
+            "apiSuffixUrl": "",
+            "forceRefreshDelay": 0
+        }
+    ]
+}

@@ -1,0 +1,163 @@
+body {
+	margin: 0px;
+	padding: 10px;
+	background: #000;
+	color: #000;
+	font-family: 'PT Sans', sans-serif;
+}
+h1 {
+	padding: 0px 3px;
+	margin: 0px 0px 20px;
+	color: #fff;
+	font-family: 'Trebuchet MS';
+}
+.clearfix {
+	float: none;
+	clear: both;
+}
+#panel {
+	margin: 0px 5px 20px;
+}
+#panel .block {
+	float: left;
+	box-sizing: border-box;
+	margin: 0px 5px 10px;
+	border-radius: 5px;
+	width: 158px;
+	height: 158px;
+	background: #fff;
+}
+#panel .block .block-inner {
+	position: relative;
+	box-sizing: border-box;
+	width: 158px;
+	height: 158px;
+	padding: 0px;
+	color: #000;
+	text-decoration: none;
+}
+#panel .block .block-title {
+	position: absolute;
+	box-sizing: border-box;
+	left: 0;
+	bottom: 0;
+	width: 158px;
+	padding: 3px 8px;
+	text-align: center;
+}
+#panel .block .block-updated {
+	position: absolute;
+	box-sizing: border-box;
+	width: 158px;
+	padding: 1px 3px;
+	font-size: 0.5em;
+	text-align: right;
+	color: #aaa;
+}
+#panel .block2, #panel .block2 .block-inner {
+	width: 208px;
+}
+#panel .block-switch1 .switch1-button {
+	background: center 5px no-repeat;
+	cursor: pointer;
+}
+#panel .block-switch1 .switch1-on {
+	background-image: url('./lustra-on.png');
+}
+#panel .block-switch1 .switch1-off {
+	background-image: url('./lustra-off.png');
+}
+#panel .block-hvac1 .hvac1-temp {
+	padding: 10px 20px 0px;
+	text-align: center;
+}
+#panel .block-hvac1 .hvac1-cold {
+	color: #0000a7;
+}
+#panel .block-hvac1 .hvac1-hot {
+	color: #a30000;
+}
+#panel .block-hvac1 .hvac1-value {
+	font-size: 3em;
+	font-weight: bold;
+}
+#panel .block-hvac1 .hvac1-degrees {
+	font-size: 2em;
+	color: #666;
+}
+#panel .block-hvac1 .hvac1-curtemp {
+	margin-top: -5px;
+	text-align: center;
+	font-size: 0.8em;
+	font-weight: bold;
+	color: #777;
+}
+#panel .block-hvac1 .hvac1-curvalue {
+	font-weight: bold;
+}
+#panel .block-hvac1 .hvac1-control {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	width: 79px;
+	height: 158px;
+	box-sizing: border-box;
+	text-decoration: none;
+	text-align: center;
+	padding-top: 68px;
+	font-size: 4em;
+}
+#panel .block-hvac1 .hvac1-less {
+	left: 0;
+	color: #2525ff;
+}
+#panel .block-hvac1 .hvac1-more {
+	right: 0;
+	color: #ff2424;
+}
+#panel .block-meteo1 .meteo1-block {
+	float: left;
+	width: 79px;
+	height: 60px;
+}
+#panel .block-meteo1 .meteo1-data {
+	padding: 18px 0px 3px;
+	text-align: center;
+}
+#panel .block-meteo1 .meteo1-value {
+	font-weight: bold;
+}
+#panel .block-meteo1 .meteo1-nrmval {
+	color: #008a18;
+}
+#panel .block-meteo1 .meteo1-midval {
+	color: #864e00;
+}
+#panel .block-meteo1 .meteo1-badval {
+	color: #e10000;
+}
+#panel .block-meteo1 .meteo1-point {
+	color: #666;
+}
+#panel .block-meteo1 .meteo1-title {
+	font-size: 0.8em;
+	text-align: center;
+	color: #888;
+}
+#panel .block-pogoda .pogoda-informer {
+	padding: 4px;
+}
+
+#panel .block-camera .camera-wrapper {
+	padding: 4px;
+}
+#slogan {
+	margin: 0px 5px 10px;
+	color: #17df00;
+	font-style: italic;
+}
+#footer {
+	margin: 0px 5px 10px;
+	color: #fff;
+	font-size: 0.8em;
+}

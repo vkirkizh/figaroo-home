@@ -1,0 +1,15 @@
+[Unit]
+Description=FgHome
+After=syslog.target network-online.target mysql.target
+
+[Service]
+Type=simple
+User=pi
+EnvironmentFile=/etc/default/fghome
+ExecStart=/usr/bin/python3 /var/www/home.py
+Restart=on-failure
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
