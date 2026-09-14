@@ -1,68 +1,110 @@
-# Figaroo Home (2017-2020)
+# Figaroo Home
 
-Custom smart home system built as a personal IoT project.
+A custom smart home system I built and used between 2017 and 2020.
 
-The system was designed around a Linux server running on Raspberry Pi and several custom hardware devices based on Arduino and ESP8266.
+The system connected several DIY devices based on Arduino and ESP8266 to a central Raspberry Pi server. It provided a web dashboard for monitoring and controlling the apartment and was later integrated with Apple Home via Homebridge.
 
-## Features
+## What it could do
 
-- Web dashboard for monitoring and controlling devices
-- Smart lamp controlled via relay
-- Infrared remote controller for air conditioner automation
-- Climate monitoring station with temperature, humidity, atmospheric pressure and CO₂ sensors
-- Integration with Apple Home via Homebridge
+- Control an air conditioner using an IR transmitter
+- Switch a custom smart lamp
+- Monitor temperature, humidity, CO₂ and atmospheric pressure
+- Monitor climate data and control devices through a web dashboard
+- Integrate devices with Apple Home through Homebridge
 
 ## Architecture
 
-The project consisted of:
+```mermaid
+flowchart TB
+    WEB["Web Dashboard"]
+    HOME["Apple Home<br/>via Homebridge"]
 
-- Linux-based home server
-- Raspberry Pi as the central controller
-- Arduino / ESP8266 based devices
-- Web interface for manual control and monitoring
-- Homebridge integration for Apple Home support
+    RPI["Raspberry Pi<br/>Figaroo Home Server"]
+
+    CLIMATE["Climate Station<br/>Arduino + ESP8266"]
+    AC["AC Controller<br/>Arduino + ESP8266"]
+    LAMP["Smart Lamp<br/>Arduino + ESP8266"]
+
+    SENSORS["Temperature · Humidity<br/>CO₂ · Pressure"]
+    IR["IR Transmitter"]
+    RELAY["Relay"]
+
+    WEB --> RPI
+    HOME --> RPI
+
+    SENSORS --> CLIMATE
+    CLIMATE -->|HTTP telemetry| RPI
+
+    RPI -->|HTTP commands| AC
+    RPI -->|HTTP commands| LAMP
+
+    AC --> IR
+    LAMP --> RELAY
+```
+
+The Climate Station periodically sent sensor readings to the server over HTTP, while the server used HTTP to send commands to the air conditioner and lamp controllers.
 
 ## Devices
 
-### Smart Lamp
-
-Relay-based device for switching a lamp on and off remotely.
-
-### IR Air Conditioner Controller
-
-Infrared transmitter used to control an air conditioner from the web dashboard and Apple Home.
-
 ### Climate Station
 
-Sensor-based device measuring:
-
+Indoor climate monitoring station measuring:
 - temperature
 - humidity
+- CO₂ concentration
 - atmospheric pressure
-- CO₂ level
 
-## Why I built it
+### Air Conditioner Controller
 
-I built this project to explore IoT, embedded devices, home automation and the integration between custom hardware and software systems.
+An IR-based controller that reproduced commands from the original remote and allowed the air conditioner to be controlled from the web interface.
 
-It was a practical way to experiment with:
+### Smart Lamp
 
-- device communication
-- Linux-based automation
-- hardware/software integration
-- web dashboards
-- smart home ecosystems
+A custom network-connected lamp controller based on a relay.
 
 ## Demo
 
 ### Hardware setup
 
-![hardware setup](./pictures/hardware-demo.jpg)
+![Figaroo Home hardware](pictures/hardware-demo.jpg)
 
-### Mobile dashboard
+Raspberry Pi server and several Arduino/ESP8266 prototypes during development.
 
-![mobile dashboard](./pictures/mobile-dashboard.jpg)
+### Web dashboard
 
----
+![Figaroo Home dashboard](pictures/mobile-dashboard.jpg)
 
-Author: Valery Kirkizh (valery@kirkizh.com)
+Mobile version of the web dashboard showing air conditioner controls, lamp control, indoor climate measurements and weather information.
+
+## Repository structure
+
+```text
+devices/   Firmware and code for Arduino/ESP8266 devices
+server/    Raspberry Pi server and web application
+pictures/  Project photos and screenshots
+```
+
+## Technology
+
+- Raspberry Pi
+- Arduino
+- ESP8266
+- PHP
+- JavaScript
+- Python
+- Homebridge
+- HTTP
+- IR
+- Environmental sensors
+
+## Project status
+
+Historical project developed and used between 2017 and 2020.
+
+It is no longer maintained; this repository preserves the original implementation.
+
+## Author
+
+Valery Kirkizh
+
+[valery@kirkizh.com](mailto:valery@kirkizh.com)
